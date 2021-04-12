@@ -19,5 +19,38 @@ npm start
 
 ### Rotas
 > [POST] /api/auth/signup
-POST >  /api/auth/signin
-POST /api/auth/changemail
+```
+{username:"nome" , email:"email" , password:"senha" }
+```
+> [POST] /api/auth/signin
+```
+{email:"email" , password:"senha" }
+```
+
+> [POST] /api/auth/changemail
+```
+{currentmail:"email" ,  newmail:"email"}
+```
+
+
+> [POST] /user/comics
+```
+{comicid:9999}
+```
+
+> [GET] /user/comics
+
+> [DELETE] /user/comics
+```
+{comicid:9999}
+```
+
+> [GET] /user/characters
+> [POST] /user/characters
+```
+{characterid:9999}
+```
+> [DELETE] /user/characters
+```
+{characterid:9999}
+```
