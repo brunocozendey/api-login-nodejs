@@ -7,22 +7,6 @@ const User = db.user;
 
 const toggleInArray = require('toggle-in-array');
 
-exports.allAccess = (req, res) => {
-  res.status(200).send("Public Content.");
-};
-
-exports.userBoard = (req, res) => {
-  res.status(200).send("User Content.");
-};
-
-exports.adminBoard = (req, res) => {
-  res.status(200).send("Admin Content.");
-};
-
-exports.moderatorBoard = (req, res) => {
-  res.status(200).send("Moderator Content.");
-};
-
 exports.listComic = (req, res) => {
   let token = req.headers["x-access-token"];
   jwt.verify(token, config.secret, (err, decoded) => {
@@ -38,7 +22,6 @@ exports.listComic = (req, res) => {
     });
   });
 }
-
 
 exports.addComic = (req, res) => {
     let token = req.headers["x-access-token"];
