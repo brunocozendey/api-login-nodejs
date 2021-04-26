@@ -32,7 +32,7 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-    res.send({ message: "User was registered successfully!" });
+    res.send({ message: "Usuário registrado com sucesso!" });
   });
 };
 
@@ -49,11 +49,11 @@ exports.signin = (req, res) => {
       }
 
       if (!user) {
-        return res.status(404).send({ message: "User Not found.", user: user});
+        return res.status(404).send({ message: "Usuário não encontrado.", user: user});
       }
 
       if (req.body.password === null) {
-        return res.status(404).send({accessToken: null, message: "Invalid Password."});
+        return res.status(404).send({accessToken: null, message: "Senha inválida."});
       }
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
@@ -63,12 +63,12 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password!"
+          message: "Senha inválida"
         });
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
+        expiresIn: 86400 // 24 horas
       });
 
       res.status(200).send({

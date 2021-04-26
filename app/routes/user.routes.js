@@ -10,7 +10,7 @@ module.exports = function(app) {
     );
     next();
   });
-  
+
   app.post("/user/comics",
   [authJwt.verifyToken],
   controller.addComic
@@ -26,7 +26,7 @@ module.exports = function(app) {
   controller.addComic
   );
 
-  app.delete("/user/comics",
+  app.put("/user/comics",
   [authJwt.verifyToken],
   controller.delComic
   );
@@ -41,7 +41,7 @@ module.exports = function(app) {
   controller.addCharacter
   );
 
-  app.delete("/user/characters",
+  app.put("/user/characters",
   [authJwt.verifyToken],
   controller.delCharacter
   );
